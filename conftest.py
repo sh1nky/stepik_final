@@ -11,7 +11,7 @@ def pytest_addoption(parser):
                      help="undefined language: use \"--language en}\"")
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def browser(request):
     browser_name = request.config.getoption("browser_name")
 

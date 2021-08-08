@@ -3,7 +3,7 @@ from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from .locators import BasicPageLocators
+from .locators import BasePageLocators
 import math
 
 
@@ -42,10 +42,17 @@ class BasePage:
 
     def go_to_basket_page(self):
         self.should_be_basket_link()
-        self.browser.find_element(*BasicPageLocators.BASKET_LINK).click()
+        self.browser.find_element(*BasePageLocators.BASKET_LINK).click()
 
     def should_be_basket_link(self):
-        assert self.is_element_present(*BasicPageLocators.BASKET_LINK), "Basket link is not presented"
+        assert self.is_element_present(*BasePageLocators.BASKET_LINK), "Basket link is not presented"
+
+    def go_to_login_page(self):
+        self.should_be_login_link()
+        self.browser.find_element(*BasePageLocators.LOGIN_LINK).click()
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
@@ -60,3 +67,7 @@ class BasePage:
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
