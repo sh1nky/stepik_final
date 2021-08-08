@@ -19,3 +19,16 @@ class LoginPageLocators:
     REGISTER_INPUT_PASSWORD = (By.CSS_SELECTOR, 'input #id_registration-password')
     REGISTER_INPUT_REPEAT_PASSWORD = (By.CSS_SELECTOR, 'input #id_registration-password2')
 
+
+class ProductPageLocators:
+    BUTTON_ADD_TO_CARD = (By.CSS_SELECTOR, "button.btn-add-to-basket")
+
+    ITEM_NAME_ON_PAGE = (By.CSS_SELECTOR, "div.product_main h1")
+    ITEM_PRICE_ON_PAGE = (By.CSS_SELECTOR, "div.product_main p.price_color")
+
+    ITEM_NAME_ON_BASKET = (By.CSS_SELECTOR, "div.alert-success div.alertinner strong")
+    ITEM_PRICE_ON_BASKET = (By.CSS_SELECTOR, "div.alert-info div.alertinner strong")
+
+    PRICE_BASKET_TOTAL = (By.CSS_SELECTOR, "div.basket-mini")
+
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alert-success div.alertinner")
