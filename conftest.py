@@ -29,7 +29,6 @@ def browser(request):
         browser = webdriver.Firefox(executable_path=GeckoDriverManager().install(), firefox_profile=profile)
     else:
         raise pytest.UsageError("--browser_name should be chrome or firefox")
-    browser.implicitly_wait(10)
     yield browser
     print("\nquit browser..")
     browser.quit()
