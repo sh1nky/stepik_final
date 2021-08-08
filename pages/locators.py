@@ -1,6 +1,10 @@
 from selenium.webdriver.common.by import By
 
 
+class BasicPageLocators:
+    BASKET_LINK = (By.CSS_SELECTOR, "div.basket-mini span.btn-group a.btn")
+
+
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
@@ -32,3 +36,8 @@ class ProductPageLocators:
     PRICE_BASKET_TOTAL = (By.CSS_SELECTOR, "div.basket-mini")
 
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alert-success div.alertinner")
+
+
+class BasketPageLocators:
+    BASKET_FORM = (By.CSS_SELECTOR, "#basket_formset")
+    BASKET_EMPTY_TEXT = (By.CSS_SELECTOR, "#content_inner p")

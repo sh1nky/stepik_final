@@ -1,4 +1,6 @@
 from pages.product_page import ProductPage
+from pages.basket_page import BasketPage
+
 import pytest
 
 
@@ -42,3 +44,11 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page.open()
     page.add_item_to_card()
     page.should_be_success_message_is_disappeared()
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    page = ProductPage(browser, 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0')
+    page.open()
+    page.go_to_basket_page()
+    basket_page = BasketPage(browser=browser, url=browser.current_url)
+    basket_page.should_not_be_basket_form()
+    basket_page.validate_empty_basket_text()
